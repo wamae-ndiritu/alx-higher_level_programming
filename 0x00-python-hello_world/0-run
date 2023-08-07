@@ -3,4 +3,3 @@
 # Running a python file
 
 python3 "$PYFILE"
-
