@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Running a python file
+
+python3 "$PYFILE"
+
