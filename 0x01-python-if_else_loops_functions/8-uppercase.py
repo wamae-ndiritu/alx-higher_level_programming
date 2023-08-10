@@ -2,10 +2,11 @@
 
 
 def uppercase(str):
+    result = ""
     for c in str:
         if 'a' <= c <= 'z':
             upper_char = chr(ord(c) - ord('a') + ord('A'))
-            print("{}".format(upper_char), end="")
+            result += "{}".format(upper_char)
         else:
-            print("{}".format(c), end="")
-    print()
+            result += "{}".format(c)
+    print(result)
