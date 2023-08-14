@@ -117,3 +117,14 @@ Write a function that finds all multiples of 2 in a list.
 - The new list should have the same size as the original list
 - You are not allowed to import any module
 
+[11. Delete at](./11-delete_at.py)
+
+Write a function that deletes the item at a specific position in a list.
+
+- Prototype: `def delete_at(my_list=[], idx=0):`
+- If `idx` is negative or out of range, nothing change (returns the same list)
+- You are not allowed to use `pop()`
+- You are not allowed to import any module
+
+
+
