@@ -93,6 +93,7 @@ Write a function that returns a new dictionary with all values multiplied by 2
 - Returns a new dictionary
 - You are not allowed to import any module
 
+
 ### Key Take Aways
 
 > When you pass a variable to a function the function is able to modify the variable completely.
