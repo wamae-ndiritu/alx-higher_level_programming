@@ -116,6 +116,15 @@ Write a function that returns a list with all values multiplied by a number with
 - You have to use `map`
 - Your file should be max 3 lines
 
+[15. Delete by value](./102-complex_delete.py)
+
+Write a function that deletes keys with a specific value in a dictionary.
+
+- Prototype: `def complex_delete(a_dictionary, value):`
+- If the value doesn’t exist, the dictionary won’t change
+- All keys having the searched value have to be deleted
+- You are not allowed to import any module
+
 ### Key Take Aways
 
 > When you pass a variable to a function the function is able to modify the variable completely.
