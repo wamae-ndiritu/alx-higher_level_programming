@@ -39,6 +39,13 @@ Write a function that returns a set of common elements in two sets.
 - Prototype: `def common_elements(set_1, set_2):`
 - You are not allowed to import any module
 
+[4. Only differents](./4-only_diff_elements.py)
+
+Write a function that returns a set of all elements present in only one set.
+
+- Prototype: `def only_diff_elements(set_1, set_2):`
+- You are not allowed to import any module
+
 ### Key Take Aways
 
 > When you pass a variable to a function the function is able to modify the variable completely.
