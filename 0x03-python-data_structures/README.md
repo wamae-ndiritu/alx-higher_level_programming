@@ -126,5 +126,19 @@ Write a function that deletes the item at a specific position in a list.
 - You are not allowed to use `pop()`
 - You are not allowed to import any module
 
+[12. Switch](./12-switch.py)
+
+Complete the source code in order to switch value of a and b
+
+- You can find the source code below:
+	```
+	#!/usr/bin/python3
+	a = 89
+	b = 10
+	# YOUR CODE GOES HERE. PLEASE REMOVE THIS LINE
+	print("a={:d} - b={:d}".format(a, b))
+	```
+- Your code should be inserted where the comment is (line 4)
+- Your program should be exactly 5 lines long
 
 
