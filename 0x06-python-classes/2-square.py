@@ -23,7 +23,7 @@ class Square:
             __size (int): The private instance attribute for the size
         """
 
-        if not isinstance(int, size):
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
