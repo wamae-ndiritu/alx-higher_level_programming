@@ -51,3 +51,9 @@ Sin aliud quid voles, postea.
 Quae animi affectio suum cuique tribuens atque hanc, quam dico.
 <BLANKLINE>
 
+>>> text_indentation(None)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+"""
