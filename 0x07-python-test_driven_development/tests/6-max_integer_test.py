@@ -30,3 +30,11 @@ class TestMaxInteger(unittest.TestCase):
         """Test with negative values
         """
         self.assertEqual(max_integer([-5, -3, -10, -1]), -1)
+
+    def test_non_int_list_value(self):
+        """
+        Test with non-integer list values
+        """
+        
+        with self.assertRaises(TypeError):
+            max_integer([1, 2, 3, '4', 5])
