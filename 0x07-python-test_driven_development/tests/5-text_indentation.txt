@@ -1,0 +1,16 @@
+"""
+>>> from importlib import import_module
+>>> text_indentation = import_module('5-text_indentation').text_indentation
+
+>>> text_indentation(1)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+>>> text_indentation("""Hello world. This is the second sprint we now learning Python. What are you currently doing?""")
+Hello world.
+<BLANKLINE>
+This is the second sprint we now learning Python.
+<BLANKLINE>
+What are you currently doing?
+<BLANKLINE>
