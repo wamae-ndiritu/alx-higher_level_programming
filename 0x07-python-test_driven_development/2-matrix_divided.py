@@ -1,7 +1,31 @@
 #!/usr/bin/python3
+"""
+Defines a function to divide matrices
+The matrix is a 2D array
+
+"""
 
 
 def matrix_divided(matrix, div):
+    """
+    Divides elements of a matrix with the div
+
+    Args:
+        matrix (list(list(int, float)):
+                A 2D matrix of either integers or floats
+        div (int, float): The divisor
+
+    Raises:
+        TypeError: If the elements of the matrix are
+                   not a list of int or floats
+                   Or the rows of the matrix have varrying size
+                   Or the divisor is not an int or a float
+        ZeroDivisionError: If the divisor is equal to zero.
+    Return: returns a new matrix where each element of each row
+            in the matrix have been divided by the divisor.
+
+    """
+
     # Check if the matrix is a list of lists, integers or floats
     if not all(isinstance(row, list) and
                all(isinstance(num, (int, float))
