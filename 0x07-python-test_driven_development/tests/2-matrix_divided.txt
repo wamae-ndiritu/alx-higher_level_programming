@@ -1,0 +1,43 @@
+'''
+# This is a test for matrix_divided function
+
+>>> from importlib import import_module
+>>> matrix_divided = import_module('2-matrix_divided').matrix_divided
+
+# The matrix is a 2D list, a list of list
+>>> matrix_divided([1, 2, 3], 2)
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Each row of the matrix should either have its elements as int or float only
+>>> matrix_divided([['Wamae', 'Ndiritu'], [1, 2]], 2)
+Traceback (most recent call last):
+        ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# The matrix should be a square matrix, each row has the same size
+>>> matrix_divided([[1, 2, 3], [1, 2]], 2)
+Traceback (most recent call last):
+        ...
+TypeError: Each row of the matrix must have the same size
+
+# The second argument of the function should be an integer
+>>> matrix_divided([[1, 2, 3], [10, 3, 4]], 'div')
+Traceback (most recent call last):
+        ...
+TypeError: div must be a number
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# Test for ZeroDivisionError
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+        ...
+ZeroDivisionError: division by zero
+
+>>> matrix_divided([[1.0, 2.0, 3], [4.5, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.5, 1.67, 2.0]]
+
+'''
