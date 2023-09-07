@@ -7,7 +7,7 @@ The module defines a function that prints your name
 def say_my_name(first_name, last_name=""):
     """
     Prints first and last name
-    
+
     Args:
         first_name (str): The first argument
         last_name (str): The second argument
