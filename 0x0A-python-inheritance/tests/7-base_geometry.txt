@@ -8,6 +8,22 @@ Traceback (most recent call last):
 	...
 Exception: area() is not implemented
 
+# Public instance method integer_validator tests
+
+# Test with empty args
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator()
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+# Test with one arg
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("my_int")
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
 # Test method integer_validator
 >>> geometry = BaseGeometry()
 >>> geometry.integer_validator("a", 1)
@@ -33,3 +49,24 @@ ValueError: a must be greater than 0
 Traceback (most recent call last):
 	...
 ValueError: a must be greater than 0
+
+# Test with None value
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("my_int", None)
+Traceback (most recent call last):
+	...
+TypeError: my_int must be an integer
+
+# Test with a list
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("my_int", [1, 2])
+Traceback (most recent call last):
+	...
+TypeError: my_int must be an integer
+
+# Test with an object
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("my_int", {})
+Traceback (most recent call last):
+	...
+TypeError: my_int must be an integer
