@@ -6,6 +6,7 @@ avoiding duplicating the same code
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -112,3 +113,30 @@ class Base:
                 return list_of_instances
         else:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Writes the JSON string representation of list_objs
+        to a csv file
+
+        Args:
+            list_objs (list): A list of instances who inherits of Base.
+        """
+        if list_objs is None:
+            list_objs = []
+
+        filename = cls.__name__ + ".csv"
+        data = [obj.to_dictionary() for obj in list_objs]
+
+        with open(filename, 'w', newline='') as csv_file:
+            csv_writer = csv.writer(csv_file)
+
+            # Write the header row
+            csv_format = ["id", "width", "height", "x", "y"]
+            csv_writer.writerow(csv_format)
+
+            # Write the data row for each of the key using csv_format
+            for obj in data:
+                data_row = [obj[key] for key in csv_format]
+                csv_writer.writerow(data_row)
