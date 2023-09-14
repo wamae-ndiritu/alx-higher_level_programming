@@ -5,6 +5,7 @@ that manages the id attribute in other classes
 avoiding duplicating the same code
 """
 import json
+import os
 
 
 class Base:
@@ -52,7 +53,7 @@ class Base:
 
         filename = cls.__name__ + ".json"
         json_string = cls.to_json_string(
-                      [obj.to_dictionary() for obj in list_objs])
+                [obj.to_dictionary() for obj in list_objs])
 
         with open(filename, 'w', encoding='utf-8') as file:
             file.write(json_string)
@@ -89,6 +90,25 @@ class Base:
 
         # Update the dummy instance with real values
         dummy_instance.update(**dictionary)
-        
+
         # Return the updated instance
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Loads JSON list from a file and converts it to Python Object
+        and create instances of the class with each of the object
+
+        Returns:
+            list of obj: A list of created instances of the class
+        """
+        filename = cls.__name__ + ".json"
+
+        if os.path.exists(filename):
+            with open(filename, 'r', encoding='utf-8') as file:
+                data = cls.from_json_string(file.read())
+                list_of_instances = [cls.create(**obj) for obj in data]
+                return list_of_instances
+        else:
+            return []
