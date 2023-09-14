@@ -25,8 +25,30 @@ class Rectangle(Base):
             height (int): Height size of the rectangle
             x (int): Attribute x. Defaults to 0
             y (int): Attribute y. Defaults to 0
+
+        Raises:
+            TypeError: If the input is not an integer
+            ValueError: If width and height is less than or equal to 0
+                        If x and y is less than 0
         """
         super().__init__(id)  # assign class id
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width <= 0:
+            raise ValueError("width must be > 0")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        elif height <= 0:
+            raise ValueError("height must be > 0")
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        elif x < 0:
+            raise ValueError("x must be >= 0")
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        elif y < 0:
+            raise ValueError("y must be >= 0")
+
         self.__width = width
         self.__height = height
         self.__x = x
@@ -49,7 +71,15 @@ class Rectangle(Base):
 
         Args:
             width (int): The value to be set to width of the rectangle
+
+        Raises:
+            TypeError: If width is not an integer
+            ValueError: If width is less than or equal to 0.
         """
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
 
     @property
@@ -69,7 +99,15 @@ class Rectangle(Base):
 
         Args:
             (int): The value to be set as the height of the rectangle
+
+        Raises:
+            TypeError: If height is not an integer
+            ValueError: If height is less than or equal to 0.
         """
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
 
     @property
@@ -90,7 +128,15 @@ class Rectangle(Base):
         Args:
             (int): The value to be set as x of the rectangle.
             Defaults to 0
+
+        Raises:
+            TypeError: If x is not an integer
+            ValueError: If x is less than 0.
         """
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
 
     @property
@@ -112,4 +158,8 @@ class Rectangle(Base):
             (int): The value to be set as y of the rectangle.
             Defaults to 0.
         """
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
