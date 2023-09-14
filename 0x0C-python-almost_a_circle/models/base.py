@@ -69,4 +69,26 @@ class Base:
         Returns:
             list: A list represented by json_string
         """
+        if json_string is None:
+            json_string = []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Creates an instance with all  attributes set
+
+        Args:
+            dictionary (tuple): A variable no. of key/value pair
+            arguments
+
+        Returns:
+            obj: Returns an instance of the cls
+        """
+        dummy_instance = cls(1, 1, 1)  # creates a dummy instance
+
+        # Update the dummy instance with real values
+        dummy_instance.update(**dictionary)
+        
+        # Return the updated instance
+        return dummy_instance
