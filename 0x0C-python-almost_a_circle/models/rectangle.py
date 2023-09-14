@@ -177,9 +177,12 @@ class Rectangle(Base):
         """
         Prints the representation of the Rectangle instance to the stdout
         using the character #
+        The function also considers the x, and y values of the rectangle
         """
+        for _ in range(self.__y):
+            print()
         for _ in range(self.__height):
-            print('#' * self.__width)
+            print(' ' * self.__x + '#' * self.__width)
 
     def __str__(self):
         """
