@@ -197,7 +197,7 @@ class Rectangle(Base):
         r_width, r_height = self.__width, self.__height
         return f"[Rectangle] ({r_id}) {r_x}/{r_y} - {r_width}/{r_height}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Uses a no-keyword argument list to update the class
         and instance methods
@@ -206,8 +206,12 @@ class Rectangle(Base):
             args (list): A list of non-keyworded argumnets representing
             values of various attributes
         """
-        self.id = args[0]
-        self.width = args[1] if len(args) > 1 else self.width
-        self.height = args[2] if len(args) > 2 else self.height
-        self.x = args[3] if len(args) > 3 else self.x
-        self.y = args[4] if len(args) > 4 else self.y
+        if not args:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+        else:
+            self.id = args[0]
+            self.width = args[1] if len(args) > 1 else self.width
+            self.height = args[2] if len(args) > 2 else self.height
+            self.x = args[3] if len(args) > 3 else self.x
+            self.y = args[4] if len(args) > 4 else self.y
