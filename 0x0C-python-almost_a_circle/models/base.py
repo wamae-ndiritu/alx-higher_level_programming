@@ -126,6 +126,11 @@ class Base:
         if list_objs is None:
             list_objs = []
 
+        csv_format = ["id", "width", "height", "x", "y"]
+
+        if cls.__name__ == 'Square':
+            csv_format = ["id", "size", "x", "y"]
+
         filename = cls.__name__ + ".csv"
         data = [obj.to_dictionary() for obj in list_objs]
 
@@ -133,10 +138,30 @@ class Base:
             csv_writer = csv.writer(csv_file)
 
             # Write the header row
-            csv_format = ["id", "width", "height", "x", "y"]
             csv_writer.writerow(csv_format)
 
             # Write the data row for each of the key using csv_format
             for obj in data:
                 data_row = [obj[key] for key in csv_format]
                 csv_writer.writerow(data_row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Loads from a csv file
+        """
+        filename = cls.__name__ + ".csv"
+
+        loaded_data = []
+
+        with open(filename, 'r') as csv_file:
+            csv_reader = csv.reader(csv_file)
+
+            header = next(csv_reader)
+
+            for row in csv_reader:
+                row_data = {header[i]: int(row[i]) for i in range(len(header))}
+
+                loaded_data.append(row_data)
+                list_of_instances = [cls.create(**obj) for obj in loaded_data]
+        return list_of_instances
