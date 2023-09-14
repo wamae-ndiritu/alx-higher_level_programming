@@ -215,3 +215,19 @@ class Rectangle(Base):
             self.height = args[2] if len(args) > 2 else self.height
             self.x = args[3] if len(args) > 3 else self.x
             self.y = args[4] if len(args) > 4 else self.y
+
+    def to_dictionary(self):
+        """
+        Represent the Rectangle in form of a dictionary
+
+        Returns:
+            dict: A dictionary containing id, width, height, x and y
+            attributes of the Rectangle
+        """
+        return {
+                "id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
+                }
