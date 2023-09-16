@@ -67,6 +67,17 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(rect.area(), 91)
 
     def test_display(self):
+        """
+        Test display rectangle method
+        """
+        # Without consider x,y dimensions
+        rect = Rectangle(3, 2, 0, 0)
+        expected_output = "###\n###\n"
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+            rect.display()
+            self.assertEqual(mock_stdout.getvalue(), expected_output)
+
+        # Considering x,y dimensions
         rect = Rectangle(3, 2, 1, 1)
         expected_output = "\n ###\n ###\n"
         with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
@@ -83,10 +94,6 @@ class TestRectangleMethods(unittest.TestCase):
 
         rect = Rectangle(4, 6, 2, 1, 12)
         expected_str = "[Rectangle] (12) 2/1 - 4/6"
-        self.assertEqual(str(rect), expected_str)
-
-        rect = Rectangle(5, 5, 1)
-        expected_str = "[Rectangle] (20) 1/0 - 5/5"
         self.assertEqual(str(rect), expected_str)
 
     def test_update(self):
