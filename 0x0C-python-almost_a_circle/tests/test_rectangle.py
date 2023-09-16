@@ -5,6 +5,8 @@ its methods including the methods being inherited
 from the parent class Base
 """
 import unittest
+import io
+from unittest.mock import patch
 from models.rectangle import Rectangle
 
 
@@ -67,7 +69,7 @@ class TestRectangleMethods(unittest.TestCase):
     def test_display(self):
         rect = Rectangle(3, 2, 1, 1)
         expected_output = "\n ###\n ###\n"
-        with unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+        with patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
             rect.display()
             self.assertEqual(mock_stdout.getvalue(), expected_output)
 
