@@ -11,6 +11,8 @@ intList.sort();
 
 if (argumentsCount - 2 === 0) {
   console.log(0);
+} else if (argumentsCount - 2 === 1) {
+  console.log(1);
 } else {
   const secondBiggest = intList[argumentsCount - 4];
   console.log(secondBiggest);
