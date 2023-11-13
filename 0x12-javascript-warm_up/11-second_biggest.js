@@ -1,19 +1,18 @@
 #!/usr/bin/node
 const process = require('process');
 
-const argumentsCount = process.argv.length;
-const intList = [];
-for (let i = 2; i < argumentsCount; i++) {
-  intList.push(parseInt(process.argv[i]));
-}
+const args = process.argv.slice(2);
 
-intList.sort();
+const integers = args.map(Number);
 
-if (argumentsCount - 2 === 0) {
-  console.log(0);
-} else if (argumentsCount - 2 === 1) {
-  console.log(1);
+const sortedInts = integers.sort((a, b) => b - a);
+
+if (sortedInts.length < 2) {
+  if (sortedInts.length === 1) {
+    console.log(1);
+  } else {
+    console.log(0);
+  }
 } else {
-  const secondBiggest = intList[argumentsCount - 4];
-  console.log(secondBiggest);
+  console.log(sortedInts[1]);
 }
