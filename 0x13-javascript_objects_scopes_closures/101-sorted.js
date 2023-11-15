@@ -11,5 +11,4 @@ for (const [key, value] of Object.entries(dict)) {
 
   sortedDict[value].push(key);
 }
-console.log(dict);
 console.log(sortedDict);
