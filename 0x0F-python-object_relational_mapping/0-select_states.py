@@ -8,13 +8,13 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    if len(argv) != 3:
+    if len(argv) != 4:
         exit(1)
 
-    username, database = argv[1], argv[2]
+    username, password, database = argv[1], argv[2], argv[3]
 
     db = MySQLdb.connect(host="localhost", port=3306,
-                         user=username, password='', db=database)
+                         user=username, password=password, db=database)
 
     cursor = db.cursor()
 
